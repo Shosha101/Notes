@@ -6,4 +6,7 @@
     <string name="add_note">Add Note</string>
     <string name="note_added">Note Added Successfully</string>
     <string name="dismiss">Dismiss</string>
+    <string name="edit_note">Edit Note</string>
+    <string name="note_updated">Updated Successfuly</string>
+    <string name="note_deleted">Deleting</string>
 </resources>

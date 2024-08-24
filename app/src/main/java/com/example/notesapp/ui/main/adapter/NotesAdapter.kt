@@ -4,35 +4,36 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import androidx.recyclerview.widget.RecyclerView
 import com.example.notesapp.R
 import com.example.notesapp.data.models.Note
 import com.example.notesapp.databinding.ItemNoteBinding
 
-class NotesAdapter (val data: List<Note>)
-    : ListAdapter<Note, NotesAdapter.MyViewHolder>(UserItemDiffCallback()) {
+class NotesAdapter(private val onNoteClick: (Note) -> Unit) : ListAdapter<Note, NotesAdapter.MyViewHolder>(UserItemDiffCallback()) {
 
-    class MyViewHolder(val binding: ItemNoteBinding) : ViewHolder(binding.root) {
-        companion object{
-            fun from(parent: ViewGroup) : MyViewHolder {
+    class MyViewHolder(val binding: ItemNoteBinding) : RecyclerView.ViewHolder(binding.root) {
+        companion object {
+            fun from(parent: ViewGroup): MyViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemNoteBinding.inflate(layoutInflater,parent,false)
+                val binding = ItemNoteBinding.inflate(layoutInflater, parent, false)
                 return MyViewHolder(binding)
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-            return MyViewHolder.from(parent)
-    }
-
-    override fun getItemCount(): Int {
-        return data.size
+        return MyViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.binding.note=data.get(position)
-        when(position%5){
+        val note = getItem(position)
+        holder.binding.note = note
+
+        holder.itemView.setOnClickListener {
+            onNoteClick(note)
+        }
+
+        when (position % 5) {
             0-> holder.binding.card.setCardBackgroundColor(holder.binding.root.context.resources.getColor(
                 R.color.blue
             ))
@@ -51,10 +52,9 @@ class NotesAdapter (val data: List<Note>)
 
         }
     }
-
 }
 
-class UserItemDiffCallback: DiffUtil.ItemCallback<Note>() {
+class UserItemDiffCallback : DiffUtil.ItemCallback<Note>() {
     override fun areItemsTheSame(oldItem: Note, newItem: Note): Boolean {
         return oldItem == newItem
     }
@@ -62,5 +62,4 @@ class UserItemDiffCallback: DiffUtil.ItemCallback<Note>() {
     override fun areContentsTheSame(oldItem: Note, newItem: Note): Boolean {
         return oldItem == newItem
     }
-
 }

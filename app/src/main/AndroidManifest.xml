@@ -13,6 +13,9 @@
         android:theme="@style/Theme.NotesApp"
         tools:targetApi="31">
         <activity
+            android:name=".ui.add_note.view.EditNoteActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.add_note.view.AddNoteActivity"
             android:exported="false" />
         <activity

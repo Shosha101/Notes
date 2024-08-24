@@ -26,5 +26,4 @@ class MainViewModel(val app: Application) : AndroidViewModel(app) {
             }
         }
     }
-
 }
