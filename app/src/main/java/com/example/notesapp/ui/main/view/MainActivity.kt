@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import com.example.notesapp.R
 import com.example.notesapp.databinding.ActivityMainBinding
 import com.example.notesapp.ui.add_note.view.AddNoteActivity
-import com.example.notesapp.ui.add_note.view.EditNoteActivity
+import com.example.notesapp.ui.edit_note.view.EditNoteActivity
 import com.example.notesapp.ui.main.adapter.NotesAdapter
 import com.example.notesapp.ui.main.view_model.MainViewModel
 

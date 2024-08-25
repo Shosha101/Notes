@@ -1,4 +1,4 @@
-package com.example.notesapp.ui.add_note.view
+package com.example.notesapp.ui.edit_note.view
 
 import android.content.Context
 import android.os.Bundle
@@ -12,7 +12,7 @@ import com.example.notesapp.R
 
 import com.example.notesapp.data.models.Note
 import com.example.notesapp.databinding.ActivityEditNoteBinding
-import com.example.notesapp.ui.add_note.view_model.EditNoteViewModel
+import com.example.notesapp.ui.edit_note.view_model.EditNoteViewModel
 import com.google.android.material.snackbar.Snackbar
 
 class EditNoteActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.example.notesapp.ui.add_note.view_model
+package com.example.notesapp.ui.edit_note.view_model
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
